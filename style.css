@@ -1,0 +1,34 @@
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+
+}
+body{
+    background-image: url(img.jpg);
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+}
+#userReview{
+   
+    font-weight: bold;
+    width: 400px;
+    border-radius: 10px;
+    border: 2px green solid;
+}
+#userName,
+#userRating{
+    width: 250px;
+    height: 20px;
+    border: inset 3px gray solid;
+}
+p , a{
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+p{
+    color: rgb(244, 14, 45);
+}

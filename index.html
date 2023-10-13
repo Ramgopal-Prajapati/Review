@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramgopal-Prajapati</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="review"> 
+        <h1>User Reviews</h1>
+        <form id="reviewForm">
+            <label for="userName">User full Name:</label>
+            <br>
+            <input type="text" id="userName" required>
+            <br>
+    
+            <label for="userRating">Rating (1-5):</label>
+            <p>How much Rating , in 5 </p>
+            <br>
+            <input type="number"  placeholder="1-5 Rating "  id="userRating" min="1" max="5" required>
+            <br>
+            <br><br>
+            <label for="userReview">Review:</label>
+            <br>
+            <textarea id="userReview" rows="4" required  placeholder="What you think about that,Write here"></textarea>
+            <br> <br>
+           
+            <button type="submit">Submit Review</button>
+            <br><br>
+            <p >Cteated by Ramgopal :</p>
+            <button type="submit"><a href="Ramgopal-prajapati.github.io/Ram">Contact-Me</a></button>
+
+        </form>
+    </div>
+    <center>
+    <button>
+    <h2>Recent Reviews</h2>
+    </button>
+    <div id="reviews"></div>
+</center>
+    <script>
+        // Review data (in-memory storage, not permanent)
+        const reviewsData = [];
+
+        // Function to display reviews
+        function displayReviews() {
+            const reviewsContainer = document.getElementById('reviews');
+            reviewsContainer.innerHTML = '';
+
+            reviewsData.forEach((review) => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review';
+                reviewDiv.innerHTML = `
+                    <strong>${review.name}</strong><br>
+                    Rating: ${review.rating}/5<br>
+                    ${review.review}
+                `;
+                reviewsContainer.appendChild(reviewDiv);
+            });
+        }
+
+        // Submit review form
+        const reviewForm = document.getElementById('reviewForm');
+        reviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const userName = document.getElementById('userName').value;
+            const userRating = document.getElementById('userRating').value;
+            const userReview = document.getElementById('userReview').value;
+
+            // Add the review to the in-memory data
+            reviewsData.push({ name: userName, rating: userRating, review: userReview });
+
+            // Clear the form
+            reviewForm.reset();
+
+            // Display updated reviews
+            displayReviews();
+        });
+    </script>
+</body>
+</html>
